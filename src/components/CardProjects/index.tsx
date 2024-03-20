@@ -27,7 +27,7 @@ export function CardProjects() {
       about:
         "The website was created together with Frabricio Dantas, I was responsible for the website's ease dev page and the footer.",
       stacks: "React, Typescript, Tailwind, Shadcn, SplideJs and CSS.",
-      link: "https://iconeenergia.com.br/sobre",
+      link: "https://interas.com.br/interas/rpa",
       linkGit: "",
       placeWork: "Interas",
       siteWork: "https://www.interas.com.br/",
@@ -178,7 +178,7 @@ export function CardProjects() {
           >
             <div className="bg-white flex justify-center items-center rounded-t-2xl cover">
               <Image
-                src={project?.image}
+                src={project.image}
                 width={384}
                 height={587}
                 alt="Imagem da Tela"
@@ -191,7 +191,7 @@ export function CardProjects() {
                 {project?.title}
               </h1>
 
-              <p className="row-span-2 text-sm px-4 h-full">{project?.about}</p>
+              <p className="row-span-2 text-sm px-4 h-full">{project.about}</p>
 
               <div className="row-span-1 flex pr-4 text-sm">
                 <Link
@@ -210,14 +210,14 @@ export function CardProjects() {
                 <h4 className="min-w-fit px-4 text-sm font-semibold">
                   Tech stack:
                 </h4>
-                <span className="pr-4 text-xs">{project?.stacks}</span>
+                <span className="pr-4 text-xs">{project.stacks}</span>
               </div>
 
               <div className="row-span-1 flex w-full justify-between pt-4">
                 {project?.link !== "" && (
                   <Link
                     href=""
-                    onClick={() => handleOpenNewPage(project?.link)}
+                    onClick={() => handleOpenNewPage(project.link)}
                     passHref
                     className="flex min-w-fit px-4 pb-4 gap-2 text-sm hover:cursor-pointer"
                   >
@@ -229,7 +229,7 @@ export function CardProjects() {
                 {project?.linkGit !== "" && (
                   <Link
                     href=""
-                    onClick={() => handleOpenNewPage(project?.linkGit)}
+                    onClick={() => handleOpenNewPage(project.linkGit)}
                     passHref
                     className="flex min-w-fit px-4 pb-4 gap-2 text-sm hover:cursor-pointer"
                   >
