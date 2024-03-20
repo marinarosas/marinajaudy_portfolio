@@ -15,7 +15,7 @@ interface Props {
 }
 
 export function CardProjects() {
-  function handleOpenNewPage(urlLink: string) {
+  function handleOpenNewPage(urlLink: string | undefined) {
     const url = urlLink;
     window.open(url, "_blank");
   }
@@ -170,15 +170,15 @@ export function CardProjects() {
   ];
   return (
     <div className="flex flex-wrap gap-4 justify-start px-9">
-      {projects?.map((project) => {
+      {projects.map((project) => {
         return (
           <div
             key={project?.title}
             className="flex flex-col justify-between bg-gray-100 w-96 rounded-2xl shadow-lg overflow-hidden border-2"
           >
             <div className="bg-white flex justify-center items-center rounded-t-2xl cover">
-              <Image
-                src={project.image}
+              <img
+                src={project?.image}
                 width={384}
                 height={587}
                 alt="Imagem da Tela"
@@ -191,7 +191,7 @@ export function CardProjects() {
                 {project?.title}
               </h1>
 
-              <p className="row-span-2 text-sm px-4 h-full">{project.about}</p>
+              <p className="row-span-2 text-sm px-4 h-full">{project?.about}</p>
 
               <div className="row-span-1 flex pr-4 text-sm">
                 <Link
@@ -210,14 +210,14 @@ export function CardProjects() {
                 <h4 className="min-w-fit px-4 text-sm font-semibold">
                   Tech stack:
                 </h4>
-                <span className="pr-4 text-xs">{project.stacks}</span>
+                <span className="pr-4 text-xs">{project?.stacks}</span>
               </div>
 
               <div className="row-span-1 flex w-full justify-between pt-4">
                 {project?.link !== "" && (
                   <Link
                     href=""
-                    onClick={() => handleOpenNewPage(project.link)}
+                    onClick={() => handleOpenNewPage(project?.link)}
                     passHref
                     className="flex min-w-fit px-4 pb-4 gap-2 text-sm hover:cursor-pointer"
                   >
@@ -229,7 +229,7 @@ export function CardProjects() {
                 {project?.linkGit !== "" && (
                   <Link
                     href=""
-                    onClick={() => handleOpenNewPage(project.linkGit)}
+                    onClick={() => handleOpenNewPage(project?.linkGit)}
                     passHref
                     className="flex min-w-fit px-4 pb-4 gap-2 text-sm hover:cursor-pointer"
                   >
