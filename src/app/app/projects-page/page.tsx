@@ -9,7 +9,6 @@ import {
   SelectContent,
   SelectGroup,
   SelectItem,
-  SelectLabel,
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
@@ -18,13 +17,16 @@ import React, { useEffect } from "react";
 export interface IProject {
   image: string;
   title: string;
+  subtitle: string;
   about: string;
   stacks: string[];
   link: string;
   linkGit: string;
+  linkPresentation: string;
   placeWork: string;
   siteWork: string;
   year: string;
+  types: string[];
 }
 
 const projects = [
@@ -36,22 +38,25 @@ const projects = [
     stacks: ["React", "Typescript", "Tailwind", "CSS"],
     link: "https://interas.com.br/interas/rpa",
     linkGit: "",
+    linkPresentation: "",
     placeWork: "Interas",
     siteWork: "https://www.interas.com.br/",
     year: "2024",
+    types: ["Frontend"],
   },
-  ,
   {
-    image: "/iconeTela.png",
-    title: "Ícone Energia Website",
+    image: "/Interas.png",
+    title: "Interas Tecnologia Website",
     about:
-      "The website was created together with Frabricio Dantas, I was responsible for the website's about page and the footer.",
-    stacks: ["React", "Typescript", "Chakra UI", "CSS"],
-    link: "https://iconeenergia.com.br/sobre",
+      "The website was created together with Frabricio Dantas, I was responsible for the website's ease dev page and the footer.",
+    stacks: ["React", "Typescript", "Tailwind", "CSS"],
+    link: "https://interas.com.br/interas/rpa",
     linkGit: "",
+    linkPresentation: "",
     placeWork: "Interas",
     siteWork: "https://www.interas.com.br/",
-    year: "2023",
+    year: "2024",
+    types: ["Frontend"],
   },
   {
     image: "/1679941023599.gif",
@@ -61,9 +66,11 @@ const projects = [
     stacks: ["React", "Typescript", "CSS"],
     link: "https://linktr.ee/sambia?utm_source=linktree_admin_share",
     linkGit: "https://github.com/SahBianchi/hackrio-front",
+    linkPresentation: "",
     placeWork: "Hackathon Rio Empreender Criativo",
     siteWork: "",
     year: "2023",
+    types: ["Frontend", "UI Design"],
   },
   {
     image: "/labook.png",
@@ -73,9 +80,11 @@ const projects = [
     stacks: ["SQL", "SQLite", "TypeScript", "Express", "Knex", "Postman"],
     link: "",
     linkGit: "https://github.com/marinajaudy/projeto-labook-backend",
+    linkPresentation: "",
     placeWork: "Labenu",
     siteWork: "https://www.instagram.com/labenu_/",
     year: "2023",
+    types: ["Backend"],
   },
   {
     image: "/labecommerce.png",
@@ -85,9 +94,11 @@ const projects = [
     stacks: ["SQL", "SQLite", "TypeScript", "Express", "Knex", "Postman"],
     link: "",
     linkGit: "https://github.com/marinajaudy/labecommerce-backend",
+    linkPresentation: "",
     placeWork: "Labenu",
     siteWork: "https://www.instagram.com/labenu_/",
     year: "2023",
+    types: ["Backend"],
   },
   {
     image: "/1675254420010.gif",
@@ -97,9 +108,11 @@ const projects = [
     stacks: ["HTML", "JavaScript", "React", "Styled-components"],
     link: "https://projeto-react-apis-chi.vercel.app/",
     linkGit: "https://github.com/marinajaudy/projeto-react-apis",
+    linkPresentation: "",
     placeWork: "Labenu",
     siteWork: "https://www.instagram.com/labenu_/",
     year: "2022",
+    types: ["Frontend"],
   },
   {
     image: "/projetoReact.png",
@@ -109,9 +122,11 @@ const projects = [
     stacks: ["React", "JavaScript", "HTML", "Style-Components"],
     link: "https://astro-tshirts.surge.sh/",
     linkGit: "https://github.com/marinajaudy/projeto-frontendreact",
+    linkPresentation: "",
     placeWork: "Lebenu",
     siteWork: "https://www.instagram.com/labenu_/",
     year: "2022",
+    types: ["Frontend"],
   },
   {
     image: "/projectintroweb.png",
@@ -121,9 +136,11 @@ const projects = [
     stacks: ["HTML", "JavaScript", "CSS", "DOM"],
     link: "https://marinajaudy.github.io/projeto-intro-web/",
     linkGit: "https://github.com/marinajaudy/projeto-intro-web",
+    linkPresentation: "",
     placeWork: "Labenu",
     siteWork: "https://www.instagram.com/labenu_/",
     year: "2022",
+    types: ["Frontend"],
   },
   {
     image: "/meuportifolio.png",
@@ -133,9 +150,11 @@ const projects = [
     stacks: ["HTML", "CSS"],
     link: "https://projetoportifolio-topaz.vercel.app/",
     linkGit: "https://github.com/marinajaudy/projetoportifolio",
+    linkPresentation: "",
     placeWork: "Labenu",
     siteWork: "https://www.instagram.com/labenu_/",
     year: "2022",
+    types: ["Frontend"],
   },
   {
     image: "/adoteumhorta.png",
@@ -145,21 +164,29 @@ const projects = [
     stacks: ["Figma"],
     link: "https://www.figma.com/file/3mDm9mW4K6qPSUzuYx5czk/Adote-uma-Horta?type=design&node-id=0-1&mode=design&t=32yXP5gTuFENcWrC-0",
     linkGit: "",
+    linkPresentation:
+      "https://www.canva.com/design/DAFDUE6kJz0/lfxF5qhx4GUTgYTkoaVtqw/edit?utm_content=DAFDUE6kJz0&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton",
     placeWork: "Hackthon Cidades Sustentáveis",
     siteWork: "",
     year: "2022",
+    types: ["UI Design"],
   },
   {
     image: "/telasServicoFunerarios.png",
     title: "Funeral Services",
+    subtitle:
+      "UI/UX Design",
     about:
-      "Project carried out as UI/UX designer at the Hackathon Experimenta Serviços Públicos de Guarulhos in May 2022, where I used Adobe Ux to create the design and prototype.",
+      "I worked as a UI/UX designer in the Hackathon Experimenta, where I collaborated with a professional designer to create an intuitive and accessible funeral services platform. Using Adobe XD, we crafted wireframes and a high-fidelity prototype. This was my second hackathon and my first experience working closely with a seasoned UI/UX expert, which made it an intense weekend of learning and innovation.",
     stacks: ["Adobe XD"],
     link: "https://youtu.be/iwkqwzvobQY",
     linkGit: "",
-    placeWork: "Hackathon Experimenta",
+    linkPresentation:
+      "https://www.canva.com/design/DAFAsz_DxU0/ZEMqqZyfmlXQmyL8_l61Vg/edit?utm_content=DAFAsz_DxU0&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton",
+    placeWork: "Hackathon Experimenta Serviços Públicos de Guarulhos",
     siteWork: "",
-    year: "2022",
+    year: "May 2022",
+    types: ["UI Design"],
   },
   // {
   //   image: "/minasabordo.png",
@@ -175,27 +202,27 @@ const projects = [
   // },
 ];
 
-const stacks = [
-  "React",
-  "Typescript",
-  "Tailwind",
-  "CSS",
-  "Chakra UI",
-  "SQL",
-  "SQLite",
-  "TypeScript",
-  "Express",
-  "Knex",
-  "Postman",
-  "HTML",
-  "JavaScript",
-  "Styled-components",
-  "Figma",
-  "Adobe XD",
-];
+// const stacks = [
+//   "React",
+//   "Typescript",
+//   "Tailwind",
+//   "CSS",
+//   "Chakra UI",
+//   "SQL",
+//   "SQLite",
+//   "TypeScript",
+//   "Express",
+//   "Knex",
+//   "Postman",
+//   "HTML",
+//   "JavaScript",
+//   "Styled-components",
+//   "Figma",
+//   "Adobe XD",
+// ];
 
 export default function ProjectsPage() {
-  const [filterSelect, setFilterSelect] = React.useState<string>("");
+  const [filterSelect, setFilterSelect] = React.useState<string>("Clean");
 
   // const filteredStacks = projects?.map((project) => {
   //   return project?.stacks.map((stack) => {
@@ -225,30 +252,13 @@ export default function ProjectsPage() {
           </SelectTrigger>
           <SelectContent>
             <SelectGroup>
-              <SelectLabel>Frontend</SelectLabel>
-              <SelectItem value="HTML">HTML</SelectItem>
-              <SelectItem value="React">React</SelectItem>
-              <SelectItem value="JavaScript">JavaScript</SelectItem>
-              <SelectItem value="Typescript">Typescript</SelectItem>
-              <SelectItem value="CSS">CSS</SelectItem>
-              <SelectItem value="Styled-components">
-                Styled-components
+              <SelectItem value="Fullstack">Fullstack</SelectItem>
+              <SelectItem value="Frontend">Frontend</SelectItem>
+              <SelectItem value="Backend">Backend</SelectItem>
+              <SelectItem value="UI Design">UI Design</SelectItem>
+              <SelectItem className="font-bold" value="Clean">
+                Clean filter
               </SelectItem>
-              <SelectItem value="Tailwind">Tailwind</SelectItem>
-              <SelectItem value="Chakra UI">Chakra UI</SelectItem>
-            </SelectGroup>
-            <SelectGroup>
-              <SelectLabel>Backend</SelectLabel>
-              <SelectItem value="SQL">SQL</SelectItem>
-              <SelectItem value="SQLite">SQLite</SelectItem>
-              <SelectItem value="Express">Express</SelectItem>
-              <SelectItem value="Knex">Knex</SelectItem>
-              <SelectItem value="Postman">Postman</SelectItem>
-            </SelectGroup>
-            <SelectGroup>
-              <SelectLabel>UI Design</SelectLabel>
-              <SelectItem value="Figma">Figma</SelectItem>
-              <SelectItem value="Adobe XD">Adobe XD</SelectItem>
             </SelectGroup>
           </SelectContent>
         </Select>

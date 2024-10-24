@@ -6,6 +6,7 @@ import * as React from "react";
 import { CiLink } from "react-icons/ci";
 import { FaGithub } from "react-icons/fa";
 import { FaRegBuilding } from "react-icons/fa";
+import { SiCanva } from "react-icons/si";
 
 interface Props {
   // title: string;
@@ -73,7 +74,7 @@ export function CardProjects({ filterSelect, projects }: Props) {
                   <h4 className="min-w-fit px-4 text-sm font-semibold">
                     Tech stack:
                   </h4>
-                  <span className="pr-4 text-xs">{project?.stacks}</span>
+                  <span className="pr-4 text-xs gap-2">{project?.stacks}</span>
                 </div>
 
                 <div className="row-span-1 flex w-full justify-between pt-4">
@@ -106,6 +107,94 @@ export function CardProjects({ filterSelect, projects }: Props) {
           )
         );
       })}
+      {filterSelect === "Clean" &&
+        projects?.map((project) => {
+          return (
+            <div
+              key={project?.title}
+              className="flex flex-col justify-between bg-gray-100 w-96 rounded-2xl shadow-lg overflow-hidden border-2"
+            >
+              <div className="bg-white flex justify-center items-center rounded-t-2xl cover">
+                <img
+                  src={project?.image}
+                  width={384}
+                  height={587}
+                  alt="Imagem da Tela"
+                  className="w-fit rounded-t-xl h-64 object-cover"
+                />
+              </div>
+
+              <div className="grid grid-rows-5 h-full justify-center items-center gap-1 border-2 border-red-600">
+                <h1 className="row-span-1 font-bold w-full px-2 text-lg border-2 border-purple-600">
+                  {project?.title} {" "}<span className="font-semibolds text-sm"> {project?.subtitle}</span>
+                </h1>
+                <div className="row-span-1 flex pr-4 text-xs border-2 border-blue-600">
+                  <Link
+                    href=""
+                    onClick={() => handleOpenNewPage(project?.siteWork)}
+                    passHref
+                    className="flex gap-2 w-full px-4  hover:cursor-pointer items-center"
+                  >
+                    {project?.placeWork}
+                  </Link>
+                  <span>{project?.year}</span>
+                </div>
+                <p className="row-span-3 text-xs px-4">
+                  {project?.about}
+                </p>
+
+                
+                <div className="row-span-2 flex w-full items-center text-blue-800">
+                  <h4 className="min-w-fit px-4 text-sm font-semibold">
+                    Tech stack:
+                  </h4>
+                  <span className="pr-4 text-xs gap-2">{project?.stacks.map((stack)=>{
+                    return <span className="pr-1">{stack}</span>
+                  })}</span>
+                </div>
+
+                <div className="row-span-1 flex w-full justify-between pt-4">
+                  {project?.link !== "" && (
+                    <Link
+                      href=""
+                      onClick={() => handleOpenNewPage(project?.link)}
+                      passHref
+                      className="flex min-w-fit px-4 pb-4 gap-2 text-sm hover:cursor-pointer items-center"
+                    >
+                      <CiLink />
+                      Project Link
+                    </Link>
+                  )}
+
+                  {project?.linkGit !== "" && (
+                    <Link
+                      href=""
+                      onClick={() => handleOpenNewPage(project?.linkGit)}
+                      passHref
+                      className="flex min-w-fit px-4 pb-4 gap-2 text-sm hover:cursor-pointer items-center"
+                    >
+                      <FaGithub />
+                      Code Link
+                    </Link>
+                  )}
+                  {project?.linkPresentation !== "" && (
+                    <Link
+                      href=""
+                      onClick={() =>
+                        handleOpenNewPage(project?.linkPresentation)
+                      }
+                      passHref
+                      className="flex min-w-fit px-4 pb-4 gap-2 text-sm hover:cursor-pointer items-center"
+                    >
+                      <SiCanva />
+                      Canva Link
+                    </Link>
+                  )}
+                </div>
+              </div>
+            </div>
+          );
+        })}
     </div>
   );
 }
