@@ -132,12 +132,11 @@ export function CardProjects({ filterSelect, projects }: Props) {
                     {"("}{" "}
                     {project?.types.map((type, index) => {
                       return (
-                        <span key={index} className="pr-1">
+                        <span key={index}>
                           {type} {index !== project.types.length - 1 && "|"}
                         </span>
                       );
-                    })}
-                    {")"}
+                    })}{")"}
                   </span>
                 </h1>
                 <div className="flex flex-col w-full pr-4 text-xs">
