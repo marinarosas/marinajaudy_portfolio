@@ -4,7 +4,7 @@ import { IProject } from "@/app/app/projects-page/page";
 import Link from "next/link";
 import * as React from "react";
 import { CiLink } from "react-icons/ci";
-import { FaGithub } from "react-icons/fa";
+import { FaFigma, FaGithub } from "react-icons/fa";
 import { FaRegBuilding } from "react-icons/fa";
 import { SiCanva } from "react-icons/si";
 
@@ -124,36 +124,59 @@ export function CardProjects({ filterSelect, projects }: Props) {
                 />
               </div>
 
-              <div className="grid grid-rows-5 h-full justify-center items-center gap-1 border-2 border-red-600">
-                <h1 className="row-span-1 font-bold w-full px-2 text-lg border-2 border-purple-600">
-                  {project?.title} {" "}<span className="font-semibolds text-sm"> {project?.subtitle}</span>
+              <div className="flex flex-col h-full justify-center items-center gap-2">
+                <h1 className="font-bold w-full px-2 text-lg pt-2">
+                  {project?.title}{" "}
+                  <span className="text-sm">
+                    {" "}
+                    {"("}{" "}
+                    {project?.types.map((type, index) => {
+                      return (
+                        <span key={index} className="pr-1">
+                          {type} {index !== project.types.length - 1 && "|"}
+                        </span>
+                      );
+                    })}
+                    {")"}
+                  </span>
                 </h1>
-                <div className="row-span-1 flex pr-4 text-xs border-2 border-blue-600">
+                <div className="flex flex-col w-full pr-4 text-xs">
                   <Link
                     href=""
                     onClick={() => handleOpenNewPage(project?.siteWork)}
                     passHref
-                    className="flex gap-2 w-full px-4  hover:cursor-pointer items-center"
+                    className={`flex gap-2 w-full px-2 font-semibold  hover:cursor-pointer items-center ${
+                      project?.siteWork
+                        ? "underline underline-offset-1"
+                        : ""
+                    }`}
                   >
                     {project?.placeWork}
                   </Link>
-                  <span>{project?.year}</span>
+                  <span className="flex gap-2 w-full px-2">
+                    {project?.year}
+                  </span>
                 </div>
-                <p className="row-span-3 text-xs px-4">
+                <p className="h-2/5 min-h-36 text-xs px-2 text-start">
                   {project?.about}
                 </p>
 
-                
                 <div className="row-span-2 flex w-full items-center text-blue-800">
                   <h4 className="min-w-fit px-4 text-sm font-semibold">
                     Tech stack:
                   </h4>
-                  <span className="pr-4 text-xs gap-2">{project?.stacks.map((stack)=>{
-                    return <span className="pr-1">{stack}</span>
-                  })}</span>
+                  <span className="pr-4 text-xs gap-2">
+                    {project?.stacks.map((stack, index) => {
+                      return (
+                        <span key={index} className="pr-1">
+                          {stack} {index !== project.stacks.length - 1 && "|"}
+                        </span>
+                      );
+                    })}
+                  </span>
                 </div>
 
-                <div className="row-span-1 flex w-full justify-between pt-4">
+                <div className="row-span-1 flex w-full justify-between pt-2">
                   {project?.link !== "" && (
                     <Link
                       href=""
@@ -188,6 +211,19 @@ export function CardProjects({ filterSelect, projects }: Props) {
                     >
                       <SiCanva />
                       Canva Link
+                    </Link>
+                  )}
+                   {project?.linkFigma !== "" && (
+                    <Link
+                      href=""
+                      onClick={() =>
+                        handleOpenNewPage(project?.linkFigma)
+                      }
+                      passHref
+                      className="flex min-w-fit px-4 pb-4 gap-2 text-sm hover:cursor-pointer items-center"
+                    >
+                      <FaFigma />
+                      Figma Link
                     </Link>
                   )}
                 </div>

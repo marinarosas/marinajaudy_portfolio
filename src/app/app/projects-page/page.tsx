@@ -1,9 +1,5 @@
 "use client";
 import { CardProjects } from "@/components/CardProjects";
-import Image from "next/image";
-import { BsBuilding } from "react-icons/bs";
-import { FaRegCalendarAlt } from "react-icons/fa";
-import { IoLocationOutline } from "react-icons/io5";
 import {
   Select,
   SelectContent,
@@ -23,6 +19,7 @@ export interface IProject {
   link: string;
   linkGit: string;
   linkPresentation: string;
+  linkFigma: string
   placeWork: string;
   siteWork: string;
   year: string;
@@ -31,18 +28,19 @@ export interface IProject {
 
 const projects = [
   {
-    image: "/Interas.png",
-    title: "Interas Tecnologia Website",
+    image: "/leroapp.gif",
+    title: "Lero",
     about:
-      "The website was created together with Frabricio Dantas, I was responsible for the website's ease dev page and the footer.",
+      "For this ebook platform aimed at children, I began by conducting market research on competitors and similar platforms. After analyzing the company’s branding materials (colors, logos, characters), I designed the interface with a focus on child-friendly usability. The project included prototyping for various devices (tablet, mobile) to ensure a consistent and intuitive experience across formats. My role covered both visual design and UX, with special attention to making the platform engaging for young users.",
     stacks: ["React", "Typescript", "Tailwind", "CSS"],
-    link: "https://interas.com.br/interas/rpa",
+    link: "https://play.google.com/store/apps/details?id=com.lerolivros&hl=pt_BR",
     linkGit: "",
     linkPresentation: "",
-    placeWork: "Interas",
+    linkFigma: "https://www.figma.com/design/LMbzIN5mr5wK4Ho8apdcgs/AppDesignLero?node-id=0-1&node-type=canvas&t=f9i9ubDGLnELndGL-0",
+    placeWork: "Interas Tecnologia",
     siteWork: "https://www.interas.com.br/",
     year: "2024",
-    types: ["Frontend"],
+    types: ["UI Design"],
   },
   {
     image: "/Interas.png",
@@ -53,6 +51,7 @@ const projects = [
     link: "https://interas.com.br/interas/rpa",
     linkGit: "",
     linkPresentation: "",
+    linkFigma: "",
     placeWork: "Interas",
     siteWork: "https://www.interas.com.br/",
     year: "2024",
@@ -67,6 +66,7 @@ const projects = [
     link: "https://linktr.ee/sambia?utm_source=linktree_admin_share",
     linkGit: "https://github.com/SahBianchi/hackrio-front",
     linkPresentation: "",
+    linkFigma: "",
     placeWork: "Hackathon Rio Empreender Criativo",
     siteWork: "",
     year: "2023",
@@ -81,6 +81,7 @@ const projects = [
     link: "",
     linkGit: "https://github.com/marinajaudy/projeto-labook-backend",
     linkPresentation: "",
+    linkFigma: "",
     placeWork: "Labenu",
     siteWork: "https://www.instagram.com/labenu_/",
     year: "2023",
@@ -95,6 +96,7 @@ const projects = [
     link: "",
     linkGit: "https://github.com/marinajaudy/labecommerce-backend",
     linkPresentation: "",
+    linkFigma: "",
     placeWork: "Labenu",
     siteWork: "https://www.instagram.com/labenu_/",
     year: "2023",
@@ -109,6 +111,7 @@ const projects = [
     link: "https://projeto-react-apis-chi.vercel.app/",
     linkGit: "https://github.com/marinajaudy/projeto-react-apis",
     linkPresentation: "",
+    linkFigma: "",
     placeWork: "Labenu",
     siteWork: "https://www.instagram.com/labenu_/",
     year: "2022",
@@ -123,6 +126,7 @@ const projects = [
     link: "https://astro-tshirts.surge.sh/",
     linkGit: "https://github.com/marinajaudy/projeto-frontendreact",
     linkPresentation: "",
+    linkFigma: "",
     placeWork: "Lebenu",
     siteWork: "https://www.instagram.com/labenu_/",
     year: "2022",
@@ -137,6 +141,7 @@ const projects = [
     link: "https://marinajaudy.github.io/projeto-intro-web/",
     linkGit: "https://github.com/marinajaudy/projeto-intro-web",
     linkPresentation: "",
+    linkFigma: "",
     placeWork: "Labenu",
     siteWork: "https://www.instagram.com/labenu_/",
     year: "2022",
@@ -144,13 +149,16 @@ const projects = [
   },
   {
     image: "/meuportifolio.png",
-    title: "My Portfolio (Previous Version)",
+    title: "My Portfolio (First Version)",
+    subtitle:
+      "Frontend",
     about:
       "The objective is to reproduce a portfolio website using a ready-made Figma template, where I used HTML and CSS to build the features of my page.",
     stacks: ["HTML", "CSS"],
     link: "https://projetoportifolio-topaz.vercel.app/",
     linkGit: "https://github.com/marinajaudy/projetoportifolio",
     linkPresentation: "",
+    linkFigma: "",
     placeWork: "Labenu",
     siteWork: "https://www.instagram.com/labenu_/",
     year: "2022",
@@ -160,22 +168,21 @@ const projects = [
     image: "/adoteumhorta.png",
     title: "Adopt a Garden",
     about:
-      "Project carried out as a UI/UX designer at the Sustainable Cities Hackathon in June 2022, where I used Figma to create the design and prototype",
+      "In this nationwide collaboration during the Sustainable Cities Hackathon, we developed an app to manage community vegetable gardens in Santa Catarina, encouraging healthier eating habits and fostering neighborhood connections. I focused on designing the Figma prototype and delivering the final pitch. Despite time constraints, I learned to present ideas concisely and clearly, and gained experience creating complex app flows. This project sharpened my skills in both UI design and effective communication.",
     stacks: ["Figma"],
     link: "https://www.figma.com/file/3mDm9mW4K6qPSUzuYx5czk/Adote-uma-Horta?type=design&node-id=0-1&mode=design&t=32yXP5gTuFENcWrC-0",
     linkGit: "",
     linkPresentation:
       "https://www.canva.com/design/DAFDUE6kJz0/lfxF5qhx4GUTgYTkoaVtqw/edit?utm_content=DAFDUE6kJz0&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton",
+    linkFigma: "",
     placeWork: "Hackthon Cidades Sustentáveis",
-    siteWork: "",
-    year: "2022",
+    siteWork: "https://cfa.org.br/hackathon-cidades-sustentaveis-promete-tres-dias-de-muita-inovacaoa/",
+    year: "Jun 2022",
     types: ["UI Design"],
   },
   {
     image: "/telasServicoFunerarios.png",
     title: "Funeral Services",
-    subtitle:
-      "UI/UX Design",
     about:
       "I worked as a UI/UX designer in the Hackathon Experimenta, where I collaborated with a professional designer to create an intuitive and accessible funeral services platform. Using Adobe XD, we crafted wireframes and a high-fidelity prototype. This was my second hackathon and my first experience working closely with a seasoned UI/UX expert, which made it an intense weekend of learning and innovation.",
     stacks: ["Adobe XD"],
@@ -183,8 +190,9 @@ const projects = [
     linkGit: "",
     linkPresentation:
       "https://www.canva.com/design/DAFAsz_DxU0/ZEMqqZyfmlXQmyL8_l61Vg/edit?utm_content=DAFAsz_DxU0&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton",
+    linkFigma: "",
     placeWork: "Hackathon Experimenta Serviços Públicos de Guarulhos",
-    siteWork: "",
+    siteWork: "https://experimenta.guarulhos.sp.gov.br/",
     year: "May 2022",
     types: ["UI Design"],
   },
