@@ -13,13 +13,12 @@ import React, { useEffect } from "react";
 export interface IProject {
   image: string;
   title: string;
-  subtitle: string;
   about: string;
   stacks: string[];
   link: string;
   linkGit: string;
   linkPresentation: string;
-  linkFigma: string
+  linkFigma: string;
   placeWork: string;
   siteWork: string;
   year: string;
@@ -36,11 +35,35 @@ const projects = [
     link: "https://play.google.com/store/apps/details?id=com.lerolivros&hl=pt_BR",
     linkGit: "",
     linkPresentation: "",
-    linkFigma: "https://www.figma.com/design/LMbzIN5mr5wK4Ho8apdcgs/AppDesignLero?node-id=0-1&node-type=canvas&t=f9i9ubDGLnELndGL-0",
+    linkFigma:
+      "https://www.figma.com/design/LMbzIN5mr5wK4Ho8apdcgs/AppDesignLero?node-id=0-1&node-type=canvas&t=f9i9ubDGLnELndGL-0",
     placeWork: "Interas Tecnologia",
     siteWork: "https://www.interas.com.br/",
     year: "2024",
     types: ["UI Design"],
+  },
+  {
+    image: "/gympassAppBackend.png",
+    title: "Gympass Style App",
+    about:
+      "In this backend project for a gym app, I applied concepts of SOLID principles, Design Patterns, and RBAC (Role-Based Access Control) to create a system for check-ins and check-outs based on user geolocation. The app ensures users must be near the gym to check in, encouraging exercise while gamifying attendance. It also implements JWT and Refresh Tokens for secure authentication, and uses Docker for database setup and management.",
+    stacks: [
+      "Node.js",
+      "SQL",
+      "Prisma",
+      "TypeScript",
+      "Docker",
+      "Vitest",
+      "Insomnia",
+    ],
+    link: "",
+    linkGit: "https://github.com/marinarosas/api-solid",
+    linkPresentation: "",
+    linkFigma: "",
+    placeWork: "Rocketseat",
+    siteWork: "https://app.rocketseat.com.br/?type=ALL",
+    year: "2023",
+    types: ["Backend"],
   },
   // {
   //   image: "/Interas.png",
@@ -74,9 +97,9 @@ const projects = [
   },
   {
     image: "/labook.png",
-    title: "Labook Backend Project",
+    title: "Labook Project",
     about:
-      "Labook is a social network with the aim of promoting connection and interaction between people. Anyone who registers on the application will be able to create and like publications.",
+      "Labook is a social network designed to foster connection and interaction among users. Registered members can create and like posts, similar to popular social platforms. As my second API project, I focused on developing core backend features, ensuring smooth functionality for user registration, content creation, and interaction.",
     stacks: ["SQL", "SQLite", "TypeScript", "Express", "Knex", "Postman"],
     link: "",
     linkGit: "https://github.com/marinajaudy/projeto-labook-backend",
@@ -89,9 +112,9 @@ const projects = [
   },
   {
     image: "/labecommerce.png",
-    title: "Labecommerce Backend Project",
+    title: "Labecommerce Project",
     about:
-      "First back-end project, where I practice the entire basis of creating an API linked to a real database.",
+      "This was my first backend project, and a major challenge as I was learning fullstack development, tackling both React and SQL at the same time. The project involved building a complete API linked to a real database, handling data flow, endpoints, and user interactions. It gave me a solid foundation in backend development while integrating front-end knowledge, offering valuable insights into fullstack workflows.",
     stacks: ["SQL", "SQLite", "TypeScript", "Express", "Knex", "Postman"],
     link: "",
     linkGit: "https://github.com/marinajaudy/labecommerce-backend",
@@ -150,8 +173,7 @@ const projects = [
   {
     image: "/meuportifolio.png",
     title: "My Portfolio (First Version)",
-    subtitle:
-      "Frontend",
+    subtitle: "Frontend",
     about:
       "The objective is to reproduce a portfolio website using a ready-made Figma template, where I used HTML and CSS to build the features of my page.",
     stacks: ["HTML", "CSS"],
@@ -176,7 +198,8 @@ const projects = [
       "https://www.canva.com/design/DAFDUE6kJz0/lfxF5qhx4GUTgYTkoaVtqw/edit?utm_content=DAFDUE6kJz0&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton",
     linkFigma: "",
     placeWork: "Hackthon Cidades Sustentáveis",
-    siteWork: "https://cfa.org.br/hackathon-cidades-sustentaveis-promete-tres-dias-de-muita-inovacaoa/",
+    siteWork:
+      "https://cfa.org.br/hackathon-cidades-sustentaveis-promete-tres-dias-de-muita-inovacaoa/",
     year: "Jun 2022",
     types: ["UI Design"],
   },
@@ -210,44 +233,11 @@ const projects = [
   // },
 ];
 
-// const stacks = [
-//   "React",
-//   "Typescript",
-//   "Tailwind",
-//   "CSS",
-//   "Chakra UI",
-//   "SQL",
-//   "SQLite",
-//   "TypeScript",
-//   "Express",
-//   "Knex",
-//   "Postman",
-//   "HTML",
-//   "JavaScript",
-//   "Styled-components",
-//   "Figma",
-//   "Adobe XD",
-// ];
-
 export default function ProjectsPage() {
   const [filterSelect, setFilterSelect] = React.useState<string>("Clean");
 
-  // const filteredStacks = projects?.map((project) => {
-  //   return project?.stacks.map((stack) => {
-  //     return stack;
-  //   });
-  // });
-
-  // const filteredStacks = stacks.map((stack)=>{
-  //   return stack
-  // })
-
-  useEffect(() => {
-    console.log(filterSelect);
-  }, [filterSelect]);
-
   return (
-    <main className="flex h-[88vh] flex-col">
+    <main className="flex flex-col overflow-y-auto">
       <div className="pt-12 pl-14">
         <h1 className="text-4xl text-blue-900 pb-2 font-bold">My Projects</h1>
         <Select
@@ -260,7 +250,7 @@ export default function ProjectsPage() {
           </SelectTrigger>
           <SelectContent>
             <SelectGroup>
-              <SelectItem value="Fullstack">Fullstack</SelectItem>
+              {/* <SelectItem value="Fullstack">Fullstack</SelectItem> */}
               <SelectItem value="Frontend">Frontend</SelectItem>
               <SelectItem value="Backend">Backend</SelectItem>
               <SelectItem value="UI Design">UI Design</SelectItem>
@@ -271,8 +261,46 @@ export default function ProjectsPage() {
           </SelectContent>
         </Select>
       </div>
-      <div className="px-14 py-8">
-        <CardProjects filterSelect={filterSelect} projects={projects} />
+      <div className="flex flex-wrap gap-6 justify-center px-14 py-8 min-h-96">
+        {projects?.map((project) => {
+          return (
+            project.types.includes(filterSelect) && (
+              <CardProjects
+                image={project.image}
+                title={project.title}
+                about={project.about}
+                stacks={project.stacks}
+                link={project.link}
+                linkGit={project.linkGit}
+                linkPresentation={project.linkPresentation}
+                linkFigma={project.linkFigma}
+                placeWork={project.placeWork}
+                siteWork={project.siteWork}
+                year={project.year}
+                types={project.types}
+              />
+            )
+          );
+        })}
+        {filterSelect === "Clean" &&
+          projects?.map((project) => {
+            return (
+              <CardProjects
+                image={project.image}
+                title={project.title}
+                about={project.about}
+                stacks={project.stacks}
+                link={project.link}
+                linkGit={project.linkGit}
+                linkPresentation={project.linkPresentation}
+                linkFigma={project.linkFigma}
+                placeWork={project.placeWork}
+                siteWork={project.siteWork}
+                year={project.year}
+                types={project.types}
+              />
+            );
+          })}
       </div>
     </main>
   );

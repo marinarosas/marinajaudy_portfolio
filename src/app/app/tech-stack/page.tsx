@@ -7,12 +7,12 @@ const iconStack = [
   {
     srcImage: "/html5icon.svg",
     altImage: "Icone Html5",
-    title: "HTML5",
+    title: "HTML",
   },
   {
     srcImage: "/cssicon.svg",
     altImage: "Icone CSS3",
-    title: "CSS3",
+    title: "CSS",
   },
   {
     srcImage: "/javascripticon.svg",
@@ -45,11 +45,15 @@ const iconStack = [
     title: "Next Js",
   },
   {
+    srcImage: "/vitejs.svg",
+    altImage: "Icone Vite",
+    title: "Vite",
+  },
+  {
     srcImage: "/giticon.svg",
     altImage: "Icone Git",
     title: "Git",
   },
-
   {
     srcImage: "/githubicon.svg",
     altImage: "Icone Github",
@@ -71,19 +75,44 @@ const iconStack = [
     title: "Styled Componentst",
   },
   {
-    srcImage: "/photoshop.png",
-    altImage: "Icone Adobe Photoshop",
-    title: "Adobe Photoshop",
-  },
-  {
     srcImage: "/figmalogo.png",
     altImage: "Icone Figma",
     title: "Figma",
   },
   {
+    srcImage: "/nodejs.svg",
+    altImage: "Icone Nodejs",
+    title: "Node.js",
+  },
+  {
+    srcImage: "/graphql.svg",
+    altImage: "Icone Graphql",
+    title: "Graphql",
+  },
+  {
     srcImage: "/mySql.svg",
     altImage: "Icone My Sql",
     title: "My SQL",
+  },
+  {
+    srcImage: "/postgresql.svg",
+    altImage: "Icone Postgresql",
+    title: "Postgresql",
+  },
+  {
+    srcImage: "/prisma.svg",
+    altImage: "Icone Prisma",
+    title: "Prisma",
+  },
+  {
+    srcImage: "/docker.svg",
+    altImage: "Icone Docker",
+    title: "Docker",
+  },
+  {
+    srcImage: "/vitest.svg",
+    altImage: "Icone Vitest",
+    title: "Vitest",
   },
   {
     srcImage: "/postman.svg",
@@ -95,11 +124,16 @@ const iconStack = [
     altImage: "Icone Insomnia",
     title: "Insomnia",
   },
+  {
+    srcImage: "/jira.svg",
+    altImage: "Icone Jira",
+    title: "Jira",
+  },
 ];
 
 export default function TechStackPage() {
   return (
-    <main className="flex h-[88vh] flex-col">
+    <main className="flex flex-col">
       <div className="pt-12 pl-14">
         <h1 className="text-4xl text-blue-900 pb-2 font-bold">
           My Tech Stacks
@@ -108,7 +142,7 @@ export default function TechStackPage() {
           Technologies I've been working on recently
         </h3>
       </div>
-      <div className="px-4 py-12 grid grid-cols-6 grid-rows-3 place-content-center gap-16">
+      <div className="px-14 py-12 flex flex-wrap justify-start gap-16">
         {iconStack.map((icon) => {
           return (
             <div
@@ -118,7 +152,7 @@ export default function TechStackPage() {
               <img
                 src={icon.srcImage}
                 alt={icon.altImage}
-                className="size-20"
+                className="size-16"
               />
               <p>{icon.title}</p>
             </div>
