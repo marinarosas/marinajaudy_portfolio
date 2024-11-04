@@ -1,6 +1,9 @@
+'use client'
 import Image from "next/image";
+import { useEffect } from "react";
 
 export default function Home() {
+  
   return (
     <main className="flex h-[37rem]">
       <section className="flex items-center justify-center w-full px-12">

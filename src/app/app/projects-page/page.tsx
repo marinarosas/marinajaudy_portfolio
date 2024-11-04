@@ -43,6 +43,48 @@ const projects = [
     types: ["UI Design"],
   },
   {
+    image: "/potyguaraWebsite.png",
+    title: "Potyguara Verse Site",
+    about:
+      "This is the official website for Potyguara Verse, an online event platform. The site tells the company’s story, showcases services, and includes client testimonials. Built with React, TypeScript, and Tailwind, the site features a contact form, carousel for content display, and a responsive design. This project highlights my skills in both frontend and backend integration for a seamless user experience.",
+    stacks: [
+      "React",
+      "TypeScript",
+      "Tailwind",
+    ],
+    link: "",
+    linkGit: "https://github.com/marinarosas/potyguara-verse-site",
+    linkPresentation: "",
+    linkFigma: "",
+    placeWork: "Potyguara Verse XR",
+    siteWork: "https://www.potyguaraverse.com",
+    year: "2024",
+    types: ["Frontend"],
+  },
+  {
+    image: "/backendPotyguara.png",
+    title: "Potyguara Verse API",
+    about:
+      "This backend project powers the Potyguara Verse platform, integrating with both the backoffice site and the metaverse environment being developed in Unity. I applied SOLID principles, Design Patterns, and Dependency Injection (DDI) to ensure robust functionality for artist event creation and user interactions in a virtual space inspired by iconic locations in Rio Grande do Norte. The API includes secure authentication with JWT and Refresh Tokens and utilizes Docker for database management.",
+    stacks: [
+      "Node.js",
+      "SQL",
+      "Prisma",
+      "TypeScript",
+      "Docker",
+      "Vitest",
+      "Insomnia",
+    ],
+    link: "",
+    linkGit: "https://github.com/marinarosas/potyguara-backend",
+    linkPresentation: "",
+    linkFigma: "",
+    placeWork: "Potyguara Verse XR",
+    siteWork: "http://www.potyguaraverse.com",
+    year: "2024",
+    types: ["Backend"],
+  },
+  {
     image: "/gympassAppBackend.png",
     title: "Gympass Style App",
     about:
@@ -129,7 +171,7 @@ const projects = [
     image: "/1675254420010.gif",
     title: "React APIs Project",
     about:
-      "The objective of this project is to create a website with three pages using PokeApi - API with the following tools: React, React Router, Styled-components, React Context and Axios.",
+      "This project’s goal was to create a three-page website using the PokeApi. It involved key frontend skills, including routing, component styling, and API integration. I used React with React Router for navigation, Styled-components for custom styling, React Context for state management, and Axios for handling API requests. This project helped me deepen my understanding of API calls and frontend structure.",
     stacks: ["HTML", "JavaScript", "React", "Styled-components"],
     link: "https://projeto-react-apis-chi.vercel.app/",
     linkGit: "https://github.com/marinajaudy/projeto-react-apis",
@@ -159,7 +201,7 @@ const projects = [
     image: "/projectintroweb.png",
     title: "Intro Web Project",
     about:
-      "The objective was to build a stylized page, with list and search using DOM manipulation. I used HTML, CSS, JavaScript and DOM to build my page functions.",
+      "This project focused on creating a stylized web page with interactive list and search functionalities using DOM manipulation. I used HTML, CSS, and JavaScript to build a responsive and dynamic user experience, handling user inputs and updating the content directly on the page. This project strengthened my understanding of JavaScript and DOM methods for creating interactive web elements.",
     stacks: ["HTML", "JavaScript", "CSS", "DOM"],
     link: "https://marinajaudy.github.io/projeto-intro-web/",
     linkGit: "https://github.com/marinajaudy/projeto-intro-web",
@@ -172,10 +214,10 @@ const projects = [
   },
   {
     image: "/meuportifolio.png",
-    title: "My Portfolio (First Version)",
+    title: "My Portfolio (1º Version)",
     subtitle: "Frontend",
     about:
-      "The objective is to reproduce a portfolio website using a ready-made Figma template, where I used HTML and CSS to build the features of my page.",
+      "This project involved creating a portfolio website based on a pre-designed Figma template. Using HTML and CSS, I implemented the design's layout and interactive elements to showcase my skills and projects. This was my first hands-on experience with front-end development, where I learned to translate visual designs into code and gained a deeper understanding of responsive styling.",
     stacks: ["HTML", "CSS"],
     link: "https://projetoportifolio-topaz.vercel.app/",
     linkGit: "https://github.com/marinajaudy/projetoportifolio",
@@ -261,7 +303,7 @@ export default function ProjectsPage() {
           </SelectContent>
         </Select>
       </div>
-      <div className="flex flex-wrap gap-6 justify-center px-14 py-8 min-h-96">
+      <div className="flex flex-wrap gap-6 justify-start px-14 py-8 min-h-96">
         {projects?.map((project) => {
           return (
             project.types.includes(filterSelect) && (
