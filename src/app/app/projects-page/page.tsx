@@ -43,6 +43,25 @@ const projects = [
     types: ["UI Design"],
   },
   {
+    image: "/potyguaraWebSite.jpg",
+    title: "Potyguara Verse Site",
+    about:
+      "This is the official website for Potyguara Verse, an online event platform. The site tells the company’s story, showcases services, and includes client testimonials. Built with React, TypeScript, and Tailwind, the site features a contact form, carousel for content display, and a responsive design. This project highlights my skills in both frontend and backend integration for a seamless user experience.",
+    stacks: [
+      "React",
+      "TypeScript",
+      "Tailwind",
+    ],
+    link: "",
+    linkGit: "https://github.com/marinarosas/potyguara-verse-site",
+    linkPresentation: "",
+    linkFigma: "",
+    placeWork: "Potyguara Verse XR",
+    siteWork: "https://www.potyguaraverse.com",
+    year: "2024",
+    types: ["Fullstack, Frontend"],
+  },
+  {
     image: "/gympassAppBackend.png",
     title: "Gympass Style App",
     about:
